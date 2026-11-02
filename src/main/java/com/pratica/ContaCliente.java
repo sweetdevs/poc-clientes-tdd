@@ -49,7 +49,7 @@ public class ContaCliente {
             return saldo;
         }
         saldo += valor;
-        System.out.println("Novo saldo: R$" + String.format(Locale.US, "%.2f", saldo));
+        System.out.println("Novo saldo: R$" + formatar(saldo));
         return saldo;
     }
 
@@ -59,16 +59,20 @@ public class ContaCliente {
             return saldo;
         }
         if (valor > saldo) {
-            System.out.println("Saldo insuficiente: saldo atual R$" + String.format(Locale.US, "%.2f", saldo));
+            System.out.println("Saldo insuficiente: saldo atual R$" + formatar(saldo));
             return saldo;
         }
         saldo -= valor;
         return saldo;
     }
 
+    private String formatar(double valor) {
+        return String.format(Locale.US, "%.2f", valor);
+    }
+
     @Override
     public String toString() {
         String nome = (cliente == null) ? "sem cliente" : cliente.getNome();
-        return nome + "(" + id + ") saldo=R$" + String.format(Locale.US, "%.2f", saldo);
+        return nome + "(" + id + ") saldo=R$" + formatar(saldo);
     }
 }
