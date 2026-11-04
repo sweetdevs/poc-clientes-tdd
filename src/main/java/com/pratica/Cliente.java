@@ -10,6 +10,7 @@ public class Cliente {
     public Cliente(int id, String nome, int desconto) {
         this.id = id;
         this.nome = nome;
+        validarDesconto(desconto);
         this.desconto = desconto;
     }
 
@@ -30,11 +31,18 @@ public class Cliente {
     }
 
     public void setDesconto(int desconto) {
+        validarDesconto(desconto);
         this.desconto = desconto;
     }
 
     @Override
     public String toString() {
         return nome + "(" + id + ")(" + desconto + "%)";
+    }
+
+    private void validarDesconto(int desconto) {
+        if (desconto < 0 || desconto > 100) {
+            throw new IllegalArgumentException("Desconto deve estar entre 0 e 100");
+        }
     }
 }
