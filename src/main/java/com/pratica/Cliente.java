@@ -10,6 +10,9 @@ public class Cliente {
     public Cliente(int id, String nome, int desconto) {
         this.id = id;
         this.nome = nome;
+        if (desconto < 0 || desconto > 100) {
+            throw new IllegalArgumentException("Desconto deve estar entre 0 e 100");
+        }
         this.desconto = desconto;
     }
 
@@ -30,6 +33,9 @@ public class Cliente {
     }
 
     public void setDesconto(int desconto) {
+        if (desconto < 0 || desconto > 100) {
+            throw new IllegalArgumentException("Desconto deve estar entre 0 e 100");
+        }
         this.desconto = desconto;
     }
 
