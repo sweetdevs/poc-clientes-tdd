@@ -10,4 +10,10 @@ Prática de Gestão e Qualidade de Software (Una). Classes `Cliente`, `FaturaCli
 
 ## Como rodar os testes
 
+Requisitos: Java 8 ou superior e Maven.
+
+Na raiz do projeto, rode:
+
+```bash
 mvn test
+```
